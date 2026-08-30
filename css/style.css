@@ -1623,7 +1623,75 @@ color: #F7EFE2;
     }
 }
 
+.letter-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 
+    padding: 11px 20px;
+    margin: 8px 5px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(135deg, #ff6b9d, #ff9fc4);
+    color: white !important;
+    text-decoration: none !important;
+
+    font-weight: bold;
+
+    box-shadow: 0 5px 20px rgba(255,105,155,.4);
+
+    overflow: hidden;
+    transition: .3s;
+
+    animation: letterPulse 2s infinite;
+}
+
+/* 💌 bergerak */
+.letter-icon {
+    font-size: 18px;
+    animation: letterMove 1.5s infinite;
+}
+
+/* ❤️ */
+.heart {
+    font-size: 12px;
+    animation: heart 1s infinite;
+}
+
+/* Hover */
+.letter-link:hover {
+    transform: translateY(-4px) scale(1.06);
+    box-shadow: 0 8px 30px rgba(255,105,155,.7);
+}
+
+/* Klik */
+.letter-link:active {
+    transform: scale(.92);
+}
+
+@keyframes letterMove {
+    0%,100% {
+        transform: rotate(0) translateY(0);
+    }
+    50% {
+        transform: rotate(-10deg) translateY(-4px);
+    }
+}
+
+@keyframes heart {
+    50% {
+        transform: scale(1.4);
+    }
+}
+
+@keyframes letterPulse {
+    50% {
+        box-shadow:
+            0 5px 30px rgba(255,105,155,.7),
+            0 0 15px rgba(255,150,190,.5);
+    }
+}
 
 
 
