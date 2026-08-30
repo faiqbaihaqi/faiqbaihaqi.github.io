@@ -1471,6 +1471,158 @@ color: #F7EFE2;
 }
 
 
+/* =========================
+   VIDEO BUTTON
+========================= */
+
+.video-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin: 8px 5px;
+    padding: 11px 20px;
+
+    border-radius: 30px;
+
+    background: linear-gradient(
+        135deg,
+        #6c5ce7,
+        #8e7dff,
+        #a78bfa
+    );
+
+    color: #fff !important;
+    text-decoration: none !important;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(108, 92, 231, 0.4);
+
+    overflow: hidden;
+
+    transition: all 0.35s ease;
+
+    animation: videoPulse 2s infinite;
+}
+
+/* Efek cahaya berjalan */
+.video-link::before {
+    content: "";
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 60%;
+    height: 100%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.45),
+        transparent
+    );
+
+    transform: skewX(-20deg);
+
+    animation: shineVideo 3s infinite;
+}
+
+/* Icon film */
+.film-icon {
+    display: inline-block;
+    font-size: 18px;
+
+    animation: filmMove 1.5s ease-in-out infinite;
+}
+
+/* Icon play */
+.play-icon {
+    display: inline-block;
+    font-size: 11px;
+
+    opacity: 0.8;
+
+    transition: transform 0.3s ease;
+}
+
+/* Hover */
+.video-link:hover {
+    transform: translateY(-4px) scale(1.06);
+
+    box-shadow:
+        0 8px 30px rgba(108, 92, 231, 0.7),
+        0 0 20px rgba(167, 139, 250, 0.5);
+
+    background: linear-gradient(
+        135deg,
+        #5847d6,
+        #7c68f5,
+        #9b83ff
+    );
+}
+
+/* Icon play bergerak saat hover */
+.video-link:hover .play-icon {
+    transform: translateX(5px) scale(1.2);
+}
+
+/* Icon film membesar */
+.video-link:hover .film-icon {
+    transform: scale(1.25) rotate(-5deg);
+}
+
+/* Saat diklik */
+.video-link:active {
+    transform: scale(0.92);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes videoPulse {
+    0% {
+        box-shadow:
+            0 5px 15px rgba(108, 92, 231, 0.35);
+    }
+
+    50% {
+        box-shadow:
+            0 5px 25px rgba(108, 92, 231, 0.65),
+            0 0 15px rgba(167, 139, 250, 0.4);
+    }
+
+    100% {
+        box-shadow:
+            0 5px 15px rgba(108, 92, 231, 0.35);
+    }
+}
+
+@keyframes filmMove {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-3px) rotate(-5deg);
+    }
+}
+
+@keyframes shineVideo {
+    0% {
+        left: -100%;
+    }
+
+    40%, 100% {
+        left: 150%;
+    }
+}
+
 
 
 
