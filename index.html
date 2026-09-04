@@ -3,34 +3,6 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-
-<div id="login-screen">
-    <h2>💌 Tebak Dulu</h2>
-    <p>Siapa orang yang paling spesial? ❤️
-	<p>*kata kuncinya huruf depannya H dan 5 huruf wkwkwk</p>
-
-    <input type="text" id="answer" placeholder="Jawaban...">
-
-    <button onclick="login()">Masuk ❤️</button>
-
-    <p id="error" style="display:none;">
-        Jawaban salah 😭
-    </p>
-</div>
-
-<script>
-function login() {
-    let answer = document.getElementById("answer").value.toLowerCase().trim();
-
-    let benar = ["hasna", "Hasna", "HASNA"];
-
-    if (benar.includes(answer)) {
-        document.getElementById("login-screen").style.display = "none";
-    } else {
-        document.getElementById("error").style.display = "block";
-    }
-}
-</script>
 	
 <!-- Mirrored from wpcolorlab.com/html/yellow/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2017 16:05:50 GMT -->
 <head>
@@ -68,8 +40,57 @@ function login() {
     <![endif]--> 
     <script src="js/jquery.min.js"></script> <!-- JQUERY -->
 </head>
+
+<script>
+function masuk() {
+    let jawaban = document.getElementById("jawaban").value.toLowerCase().trim();
+
+    let benar = ["hasna", "hasna", "HASNA", "cantik"];
+
+    if (benar.includes(jawaban)) {
+        document.getElementById("login").style.display = "none";
+    } else {
+        document.getElementById("salah").style.display = "block";
+    }
+}
+</script>
+ <!-- CSS LOGIN -->
+    <style>
+        #login {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        #login input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #login button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 <body>
 
+<div id="login">
+    <h2>💌 Welcome</h2>
+    <p>Siapa orang yang paling spesial? ❤️
+	<p>*katakuncinya huruf depannya H dan ada 5 huruf wkwkwk</p>
+
+    <input type="text" id="jawaban" placeholder="Jawaban...">
+    <button onclick="masuk()">Masuk ❤️</button>
+
+    <p id="salah" style="display:none;">Jawaban salah 😭</p>
+</div>
+	
     <!--FRONT PAGE/ SPLASH SCREEN SECTION-->
 
     <div class="loading-screen"></div>
