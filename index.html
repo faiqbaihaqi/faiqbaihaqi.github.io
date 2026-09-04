@@ -50,20 +50,33 @@ const daftarPassword = [
 ];
 
 function login() {
-    const password = document.getElementById("password").value;
+    const passwordInput = document.getElementById("password");
     const error = document.getElementById("error");
 
+    const password = passwordInput.value;
+
     if (daftarPassword.includes(password)) {
-        document.getElementById("login").remove();
+
+        // Password benar
+        document.getElementById("login").style.display = "none";
+
+        // Jalankan animasi website
+        if (typeof $ !== "undefined") {
+            $("#content").removeClass("hidden");
+        }
+
     } else {
+
+        // Password salah
         error.style.display = "block";
         error.textContent = "❌ Password salah!";
 
-        document.getElementById("password").value = "";
-        document.getElementById("password").focus();
+        passwordInput.value = "";
+        passwordInput.focus();
     }
 }
 
+// Bisa tekan ENTER untuk login
 document.getElementById("password").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         login();
@@ -71,11 +84,16 @@ document.getElementById("password").addEventListener("keydown", function(e) {
 });
 </script>
 
-	
 <body>
+
+<!-- ================= LOGIN SCREEN ================= -->
 <div id="login">
     <h2>🔐 Siapa orang yang paling spesial? ❤️</h2>
-    <p>Masukkan password untuk masuk, *katakuncinya huruf depannya H dan ada 5 huruf wkwkwk
+
+    <p>
+        Masukkan password untuk masuk,<br>
+        *katakuncinya huruf depannya H dan ada 5 huruf wkwkwk
+    </p>
 
     <input
         type="password"
@@ -84,11 +102,11 @@ document.getElementById("password").addEventListener("keydown", function(e) {
         autocomplete="off"
     >
 
-    <button onclick="login()">Masuk ❤️</button>
+    <button type="button" onclick="login()">Masuk ❤️</button>
 
-    <p id="error">Password salah!</p>
+    <p id="error">❌ Password salah!</p>
 </div>
-	
+
 <style>
 #login {
     position: fixed;
@@ -104,12 +122,21 @@ document.getElementById("password").addEventListener("keydown", function(e) {
     text-align: center;
 }
 
+#login h2 {
+    margin-bottom: 10px;
+}
+
+#login p {
+    margin: 5px 20px;
+}
+
 #login input {
     padding: 12px;
     width: 250px;
-    margin: 10px;
+    margin: 15px 10px 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    outline: none;
 }
 
 #login button {
@@ -117,6 +144,12 @@ document.getElementById("password").addEventListener("keydown", function(e) {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    background: #333;
+    color: white;
+}
+
+#login button:hover {
+    opacity: 0.8;
 }
 
 #error {
@@ -124,6 +157,7 @@ document.getElementById("password").addEventListener("keydown", function(e) {
     color: red;
 }
 </style>
+	
     <!--container-->
     <div class="container">
         <div id="content" class="row hidden">
