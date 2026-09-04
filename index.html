@@ -39,18 +39,96 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]--> 
     <script src="js/jquery.min.js"></script> <!-- JQUERY -->
+
+
+<style>
+#login {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    background: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#login h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+}
+
+#login p {
+    font-size: 16px;
+}
+
+#login input {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px;
+    margin: 12px 0;
+    box-sizing: border-box;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+}
+
+#login button {
+    width: 100%;
+    max-width: 280px;
+    padding: 14px;
+
+    border: none;
+    border-radius: 10px;
+    background: #ff69b4;
+    color: white;
+
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#login button:active {
+    transform: scale(0.97);
+}
+
+#error {
+    display: none;
+    color: red;
+    margin-top: 15px;
+}
+</style>
+
+
+
+	
 </head>
+
 <script>
-async function login() {
+const daftarPassword = [
+    "Hasna",
+    "hasna",
+    "HASNA"
+];
+
+function login() {
     const password = document.getElementById("password").value;
+    const error = document.getElementById("error");
 
-    // Password yang benar
-    const passwordBenar = "Hasna","hasna","HASNA";
-
-    if (password === passwordBenar) {
+    if (daftarPassword.includes(password)) {
         document.getElementById("login").remove();
     } else {
-        document.getElementById("error").style.display = "block";
+        error.style.display = "block";
+        error.textContent = "❌ Password salah!";
+
+        document.getElementById("password").value = "";
+        document.getElementById("password").focus();
     }
 }
 
@@ -60,14 +138,20 @@ document.getElementById("password").addEventListener("keydown", function(e) {
     }
 });
 </script>
+
 	
 <body>
-
 <div id="login">
     <h2>🔐 Siapa orang yang paling spesial? ❤️</h2>
-    <p>Masukkan password untuk masuk, *katakuncinya huruf depannya H dan ada 5 huruf wkwkwk</p>
+    <p>Masukkan password untuk masuk, *katakuncinya huruf depannya H dan ada 5 huruf wkwkwk
 
-    <input type="password" id="password" placeholder="Password">
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+        autocomplete="off"
+    >
+
     <button onclick="login()">Masuk ❤️</button>
 
     <p id="error">Password salah!</p>
