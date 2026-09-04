@@ -4,6 +4,34 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 
+<div id="login-screen">
+    <h2>💌 Tebak Dulu</h2>
+    <p>Siapa orang yang paling spesial? ❤️
+	<p>*kata kuncinya huruf depannya H dan 5 huruf wkwkwk</p>
+
+    <input type="text" id="answer" placeholder="Jawaban...">
+
+    <button onclick="login()">Masuk ❤️</button>
+
+    <p id="error" style="display:none;">
+        Jawaban salah 😭
+    </p>
+</div>
+
+<script>
+function login() {
+    let answer = document.getElementById("answer").value.toLowerCase().trim();
+
+    let benar = ["hasna", "Hasna", "HASNA"];
+
+    if (benar.includes(answer)) {
+        document.getElementById("login-screen").style.display = "none";
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+</script>
+	
 <!-- Mirrored from wpcolorlab.com/html/yellow/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2017 16:05:50 GMT -->
 <head>
     <!-- Basic Page Needs
