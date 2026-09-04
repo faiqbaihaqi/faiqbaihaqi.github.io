@@ -3,7 +3,7 @@
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-	
+
 <!-- Mirrored from wpcolorlab.com/html/yellow/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2017 16:05:50 GMT -->
 <head>
     <!-- Basic Page Needs
@@ -39,125 +39,21 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]--> 
     <script src="js/jquery.min.js"></script> <!-- JQUERY -->
-	
 </head>
-
-<script>
-const daftarPassword = [
-    "Hasna",
-    "hasna",
-    "HASNA"
-];
-
-function login() {
-    const passwordInput = document.getElementById("password");
-    const error = document.getElementById("error");
-
-    const password = passwordInput.value;
-
-    if (daftarPassword.includes(password)) {
-
-        // Password benar
-        document.getElementById("login").style.display = "none";
-
-        // Jalankan animasi website
-        if (typeof $ !== "undefined") {
-            $("#content").removeClass("hidden");
-        }
-
-    } else {
-
-        // Password salah
-        error.style.display = "block";
-        error.textContent = "❌ Password salah!";
-
-        passwordInput.value = "";
-        passwordInput.focus();
-    }
-}
-
-// Bisa tekan ENTER untuk login
-document.getElementById("password").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        login();
-    }
-});
-</script>
-
 <body>
 
-<!-- ================= LOGIN SCREEN ================= -->
-<div id="login">
-    <h2>🔐 Siapa orang yang paling spesial? ❤️</h2>
+    <!--FRONT PAGE/ SPLASH SCREEN SECTION-->
 
-    <p>
-        Masukkan password untuk masuk,<br>
-        *katakuncinya huruf depannya H dan ada 5 huruf wkwkwk
-    </p>
+    <div class="loading-screen"></div>
 
-    <input
-        type="password"
-        id="password"
-        placeholder="Password"
-        autocomplete="off"
-    >
-
-    <button type="button" onclick="login()">Masuk ❤️</button>
-
-    <p id="error">❌ Password salah!</p>
-</div>
-
-<style>
-#login {
-    position: fixed;
-    inset: 0;
-    z-index: 999999;
-    background: white;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-}
-
-#login h2 {
-    margin-bottom: 10px;
-}
-
-#login p {
-    margin: 5px 20px;
-}
-
-#login input {
-    padding: 12px;
-    width: 250px;
-    margin: 15px 10px 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-}
-
-#login button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    background: #333;
-    color: white;
-}
-
-#login button:hover {
-    opacity: 0.8;
-}
-
-#error {
-    display: none;
-    color: red;
-}
-</style>
-	
+    <div id="frontpage"> 
+        <div class="shadow-img"></div> 
+        <img src="images/front-image.jpg" class="front-img img-responsive" alt ="Front-image"><!--IMAGE FOR FRONT SCREEN-->
+        <h1>Fa'iq <span class="invert">Baihaqi</span></h1><!--PROFILE NAME-->
+        <h3 class="invert" style="margin-top: -10px; margin-bottom: 10px;"> <span class="rotate">Accountant,Auditor</span></h3> <!--SUBTITLE IN PROFILE-->
+        <div class="frontclick"><img src="images/click.png" alt="" class="img-responsive"><span class="pulse"></span></div>
+    </div>
+    <!--FRONT PAGE/ SPLASH SCREEN SECTION ENDS-->
     <!--container-->
     <div class="container">
         <div id="content" class="row hidden">
