@@ -109,6 +109,7 @@ body {
 }
 </style>
 
+
 </head>
 <body>
 
@@ -117,7 +118,7 @@ body {
     <!--FRONT PAGE/ SPLASH SCREEN SECTION ENDS-->
     <!--container-->
     <div class="container">
-        <div id="content" class="row">
+        <div id="content" class="row hidden">
             <div class="col-sm-4">
                 <!--namecard-->
                 <div id="namecard" class="namecard">
@@ -155,14 +156,14 @@ body {
                 <ul class="page-container no-padding">
                     <!--HOME/PROFILE PAGE-->
                     <li id="home" class="selected">
-                        <div class="title-container">
+                        <div class="title-container hidden">
                             <div class="shadow-img"></div> 
                             <h2 class="rotate-out">Welcome To <span class="invert">My Website</span></h2><!--HOME TITLE-->                          
                         </div>
-                        <div class="description">
+                        <div class="description hidden">
                             <div class="watermark-home"></div> 
 
-                            <div class="fade-text">
+                            <div class="fade-text transparent">
 <!-- DESCRIPTION ON HOME -->
 <div class="strong-text">
     Hello, I'm <span>Fa'iq Baihaqi</span>
@@ -377,57 +378,6 @@ body {
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPNkCVoBW_Jzl6x-hgGU6e7QW1QMwKles"></script>
     <script type="text/javascript" src='js/isotope.pkgd.min.js'></script> <!--SCRIPTS FOR PORTFOLIO IMAGE'S ANIMATION-->
     <script type="text/javascript" src="js/custom.js"></script>
-
-<script id="visibility-fix-js">
-(function () {
-    function revealHome() {
-        var content = document.getElementById("content");
-        var home = document.getElementById("home");
-
-        if (content) {
-            content.classList.remove("hidden");
-            content.style.setProperty("display", "flex", "important");
-            content.style.setProperty("visibility", "visible", "important");
-            content.style.setProperty("opacity", "1", "important");
-        }
-
-        if (home) {
-            home.classList.remove("hidden");
-            home.style.setProperty("display", "block", "important");
-            home.style.setProperty("visibility", "visible", "important");
-            home.style.setProperty("opacity", "1", "important");
-
-            [
-                ".title-container",
-                ".description",
-                ".fade-text",
-                "#namecard",
-                "#profile-img"
-            ].forEach(function (selector) {
-                home.querySelectorAll(selector).forEach(function (el) {
-                    el.classList.remove("hidden", "transparent", "rotated");
-                    el.style.setProperty("visibility", "visible", "important");
-                    el.style.setProperty("opacity", "1", "important");
-                });
-            });
-        }
-    }
-
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", revealHome);
-    } else {
-        revealHome();
-    }
-
-    window.addEventListener("load", revealHome);
-
-    // Re-apply once after old template animations/plugins have initialized.
-    setTimeout(revealHome, 300);
-    setTimeout(revealHome, 1200);
-    setTimeout(revealHome, 2500);
-})();
-</script>
-
 </body>
 
 <!-- Mirrored from wpcolorlab.com/html/yellow/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2017 16:06:27 GMT -->
