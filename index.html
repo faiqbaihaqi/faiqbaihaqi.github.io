@@ -12,7 +12,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="http://webtechtoday.com/">
-    <meta name="author" content="faiq">
+    <meta name="author" content="nurealam sabbir">
 
     <!-- Mobile Specific Metas 
   ================================================== -->
@@ -39,6 +39,76 @@
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]--> 
     <script src="js/jquery.min.js"></script> <!-- JQUERY -->
+
+<style id="visibility-fix">
+/* ===== FIX: SHOW WEBSITE CONTENT ===== */
+html, body {
+    min-height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* The original template hides this until its animation starts. */
+#content {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Keep the two main columns visible. */
+#content > .col-sm-4,
+#content > .col-sm-8,
+#content .page-segment {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Home page must be visible on first load. */
+#home {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+#home .title-container,
+#home .description,
+#home .fade-text {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Profile image and name card. */
+#namecard,
+#profile-img {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Do not let the template's generic hidden/transparent animation
+   accidentally hide the currently selected home content. */
+#home .hidden,
+#home .transparent,
+#home .rotated {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Selected page only. Contact remains controlled by the menu. */
+#contact {
+    visibility: visible;
+}
+
+/* Mobile layout fallback. */
+@media (max-width: 767px) {
+    #content {
+        display: block !important;
+    }
+}
+</style>
+
 </head>
 <body>
 
@@ -92,7 +162,7 @@
                         <div class="description">
                             <div class="watermark-home"></div> 
 
-                            <div class="fade-text transparent">
+                            <div class="fade-text">
 <!-- DESCRIPTION ON HOME -->
 <div class="strong-text">
     Hello, I'm <span>Fa'iq Baihaqi</span>
@@ -308,42 +378,53 @@
     <script type="text/javascript" src='js/isotope.pkgd.min.js'></script> <!--SCRIPTS FOR PORTFOLIO IMAGE'S ANIMATION-->
     <script type="text/javascript" src="js/custom.js"></script>
 
-<script>
+<script id="visibility-fix-js">
 (function () {
-    function showPage() {
+    function revealHome() {
         var content = document.getElementById("content");
         var home = document.getElementById("home");
 
         if (content) {
             content.classList.remove("hidden");
-            content.style.display = "block";
-            content.style.visibility = "visible";
-            content.style.opacity = "1";
+            content.style.setProperty("display", "flex", "important");
+            content.style.setProperty("visibility", "visible", "important");
+            content.style.setProperty("opacity", "1", "important");
         }
 
         if (home) {
             home.classList.remove("hidden");
-            home.style.visibility = "visible";
-            home.style.opacity = "1";
+            home.style.setProperty("display", "block", "important");
+            home.style.setProperty("visibility", "visible", "important");
+            home.style.setProperty("opacity", "1", "important");
 
-            home.querySelectorAll(".title-container, .description, .fade-text, #profile-img")
-                .forEach(function (el) {
-                    el.classList.remove("hidden", "transparent");
-                    el.style.visibility = "visible";
-                    el.style.opacity = "1";
+            [
+                ".title-container",
+                ".description",
+                ".fade-text",
+                "#namecard",
+                "#profile-img"
+            ].forEach(function (selector) {
+                home.querySelectorAll(selector).forEach(function (el) {
+                    el.classList.remove("hidden", "transparent", "rotated");
+                    el.style.setProperty("visibility", "visible", "important");
+                    el.style.setProperty("opacity", "1", "important");
                 });
+            });
         }
     }
 
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", showPage);
+        document.addEventListener("DOMContentLoaded", revealHome);
     } else {
-        showPage();
+        revealHome();
     }
 
-    // Fallback in case an old animation/plugin prevents the first reveal.
-    window.addEventListener("load", showPage);
-    setTimeout(showPage, 1500);
+    window.addEventListener("load", revealHome);
+
+    // Re-apply once after old template animations/plugins have initialized.
+    setTimeout(revealHome, 300);
+    setTimeout(revealHome, 1200);
+    setTimeout(revealHome, 2500);
 })();
 </script>
 
