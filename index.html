@@ -47,7 +47,7 @@
     <!--FRONT PAGE/ SPLASH SCREEN SECTION ENDS-->
     <!--container-->
     <div class="container">
-        <div id="content" class="row hidden">
+        <div id="content" class="row">
             <div class="col-sm-4">
                 <!--namecard-->
                 <div id="namecard" class="namecard">
@@ -85,11 +85,11 @@
                 <ul class="page-container no-padding">
                     <!--HOME/PROFILE PAGE-->
                     <li id="home" class="selected">
-                        <div class="title-container hidden">
+                        <div class="title-container">
                             <div class="shadow-img"></div> 
                             <h2 class="rotate-out">Welcome To <span class="invert">My Website</span></h2><!--HOME TITLE-->                          
                         </div>
-                        <div class="description hidden">
+                        <div class="description">
                             <div class="watermark-home"></div> 
 
                             <div class="fade-text transparent">
@@ -307,6 +307,46 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPNkCVoBW_Jzl6x-hgGU6e7QW1QMwKles"></script>
     <script type="text/javascript" src='js/isotope.pkgd.min.js'></script> <!--SCRIPTS FOR PORTFOLIO IMAGE'S ANIMATION-->
     <script type="text/javascript" src="js/custom.js"></script>
+
+<script>
+(function () {
+    function showPage() {
+        var content = document.getElementById("content");
+        var home = document.getElementById("home");
+
+        if (content) {
+            content.classList.remove("hidden");
+            content.style.display = "block";
+            content.style.visibility = "visible";
+            content.style.opacity = "1";
+        }
+
+        if (home) {
+            home.classList.remove("hidden");
+            home.style.visibility = "visible";
+            home.style.opacity = "1";
+
+            home.querySelectorAll(".title-container, .description, .fade-text, #profile-img")
+                .forEach(function (el) {
+                    el.classList.remove("hidden", "transparent");
+                    el.style.visibility = "visible";
+                    el.style.opacity = "1";
+                });
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", showPage);
+    } else {
+        showPage();
+    }
+
+    // Fallback in case an old animation/plugin prevents the first reveal.
+    window.addEventListener("load", showPage);
+    setTimeout(showPage, 1500);
+})();
+</script>
+
 </body>
 
 <!-- Mirrored from wpcolorlab.com/html/yellow/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2017 16:06:27 GMT -->
