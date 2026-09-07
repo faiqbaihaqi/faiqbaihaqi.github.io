@@ -1,384 +1,854 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-
-<!-- Mirrored from wpcolorlab.com/html/yellow/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2017 16:05:50 GMT -->
+<html lang="id">
 <head>
-    <!-- Basic Page Needs
-    ================================================== -->
-    <title>faiq's profile</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="http://webtechtoday.com/">
-    <meta name="author" content="nurealam sabbir">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Mobile Specific Metas 
-  ================================================== -->
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>Fa'iq's Profile</title>
 
-    <!-- Favicons
-    ================================================== -->
     <link rel="shortcut icon" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
-    <!--fonts
-    ====================================================-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700%7cOswald:400,700" rel="stylesheet">
-    <!--stylesheets
-    ====================================================-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>  
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/simpletextrotator.css"> 
-    
-    <!--[if lt IE 9]>
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]--> 
-    <script src="js/jquery.min.js"></script> <!-- JQUERY -->
 
-<style id="visibility-fix">
-/* ===== FIX: SHOW WEBSITE CONTENT ===== */
-html, body {
-    min-height: 100%;
-}
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
 
-body {
-    overflow-x: hidden;
-}
+    <style>
 
-/* The original template hides this until its animation starts. */
-#content {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+        /* =====================================
+           BASIC
+        ===================================== */
 
-/* Keep the two main columns visible. */
-#content > .col-sm-4,
-#content > .col-sm-8,
-#content .page-segment {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-/* Home page must be visible on first load. */
-#home {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            font-family: "Open Sans", Arial, sans-serif;
+        }
 
-#home .title-container,
-#home .description,
-#home .fade-text {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+        body {
+            overflow-x: hidden;
+        }
 
-/* Profile image and name card. */
-#namecard,
-#profile-img {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+        .container {
+            min-height: 100vh;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
 
-/* Do not let the template's generic hidden/transparent animation
-   accidentally hide the currently selected home content. */
-#home .hidden,
-#home .transparent,
-#home .rotated {
-    visibility: visible !important;
-    opacity: 1 !important;
-}
+        /* =====================================
+           MAIN CONTENT
+        ===================================== */
 
-/* Selected page only. Contact remains controlled by the menu. */
-#contact {
-    visibility: visible;
-}
+        #content {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 500px;
+        }
 
-/* Mobile layout fallback. */
-@media (max-width: 767px) {
-    #content {
-        display: block !important;
-    }
-}
-</style>
+        #content > .col-sm-4,
+        #content > .col-sm-8 {
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
 
+        /* =====================================
+           NAME CARD
+        ===================================== */
 
+        #namecard {
+            position: relative;
+            text-align: center;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        #namecard h1,
+        #namecard h3,
+        #profile-img {
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .maintitle {
+            font-family: "Oswald", sans-serif;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .sub-maintitle {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .invert {
+            font-weight: 700;
+        }
+
+        #profile-img {
+            display: block !important;
+            width: 230px;
+            height: 230px;
+            object-fit: cover;
+            margin: 20px auto;
+            border-radius: 50%;
+        }
+
+        /* =====================================
+           MENU
+        ===================================== */
+
+        #menu-container {
+            margin-top: 30px;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: 0.3s;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .nav-menu li:hover,
+        .nav-menu li.selected {
+            background: rgba(0,0,0,0.08);
+        }
+
+        .nav-menu li span {
+            font-weight: 600;
+        }
+
+        /* =====================================
+           SOCIAL
+        ===================================== */
+
+        .social-menu-container {
+            margin-top: 25px;
+        }
+
+        .social-menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-menu li a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.08);
+            color: inherit;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-menu li a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =====================================
+           PAGE AREA
+        ===================================== */
+
+        .page-segment {
+            padding: 20px 40px;
+        }
+
+        .page-container {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* =====================================
+           HOME
+        ===================================== */
+
+        #home {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .title-container {
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+            margin-bottom: 30px;
+        }
+
+        .title-container h2 {
+            font-family: "Oswald", sans-serif;
+            font-size: 34px;
+            margin: 0;
+        }
+
+        .description {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .fade-text {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .strong-text {
+            font-size: 25px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .strong-text span {
+            font-weight: 700;
+        }
+
+        .large-paragraph {
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        /* =====================================
+           CUTE LINKS
+        ===================================== */
+
+        .cute-link {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 7px;
+            margin: 10px 5px;
+            padding: 10px 18px;
+            border-radius: 30px;
+            text-decoration: none !important;
+            font-weight: 700;
+            transition: 0.3s;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        .letter-link {
+            background: #ffe4ec;
+            color: #d6336c;
+        }
+
+        .video-link {
+            background: #e5e5e5;
+            color: #333;
+        }
+
+        .cute-link:hover {
+            transform: translateY(-3px) scale(1.03);
+        }
+
+        .letter-icon,
+        .film-icon {
+            font-size: 22px;
+        }
+
+        .heart {
+            color: #ff4d6d;
+            font-size: 18px;
+        }
+
+        .play-icon {
+            font-size: 13px;
+        }
+
+        /* =====================================
+           PERSONAL INFO
+        ===================================== */
+
+        .personal-info-title {
+            margin-top: 35px;
+            font-family: "Oswald", sans-serif;
+            font-size: 25px;
+        }
+
+        .personal-info {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .personal-info li {
+            display: flex;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            visibility: visible !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .personal-info label {
+            width: 120px;
+            font-weight: 700;
+        }
+
+        .personal-info span {
+            flex: 1;
+        }
+
+        /* =====================================
+           CONTACT
+        ===================================== */
+
+        #contact {
+            margin-top: 70px;
+            padding-top: 50px;
+            border-top: 2px solid rgba(0,0,0,0.1);
+
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        #contact .title-container {
+            display: block !important;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .sm-title {
+            margin: 18px 0;
+            font-size: 15px;
+        }
+
+        .address-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.08);
+        }
+
+        /* =====================================
+           CONTACT FORM
+        ===================================== */
+
+        .mail-container {
+            margin-top: 25px;
+        }
+
+        .mail-container .title {
+            font-family: "Oswald", sans-serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        #contact-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        #contact-form input,
+        #contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #contact-form textarea {
+            resize: vertical;
+        }
+
+        #contact-form button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 767px) {
+
+            .container {
+                padding: 25px 15px;
+            }
+
+            #content {
+                display: block !important;
+            }
+
+            #content > .col-sm-4,
+            #content > .col-sm-8 {
+                width: 100%;
+                display: block !important;
+            }
+
+            .page-segment {
+                padding: 30px 10px;
+            }
+
+            .maintitle {
+                font-size: 34px;
+            }
+
+            #profile-img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .title-container h2 {
+                font-size: 28px;
+            }
+
+            .large-paragraph {
+                font-size: 15px;
+            }
+
+            .personal-info li {
+                display: block;
+            }
+
+            .personal-info label {
+                display: block;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+
+            #contact {
+                margin-top: 50px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
-    <!--FRONT PAGE/ SPLASH SCREEN SECTION-->
+<div class="container">
 
-    <!--FRONT PAGE/ SPLASH SCREEN SECTION ENDS-->
-    <!--container-->
-    <div class="container">
-        <div id="content" class="row hidden">
-            <div class="col-sm-4">
-                <!--namecard-->
-                <div id="namecard" class="namecard">
-                    <div class="shadow-img"></div>
-                    <h1 class="maintitle">Fa'iq <span class="invert">Baihaqi</span></h1><!--PROFILE NAME-->
-                    <h3 class="invert sub-maintitle"> 
-                        <span class="rotate">Accountant, Auditor</span><!--SUBTITLE AFTET NAME-->
-                    </h3>
-                    <img id="profile-img" class="profile-img transparent" src="images/profile-thum.png" alt="profile-image"/><!--PROFILE IMAGE-->
-                </div><!--/#namecard-->
-                <!--menu-->
-                <div id="menu-container">
-                    <!--PAGE MENU-->
-                    <ul class="nav-menu no-padding">
-                        <li class="nav-btn selected" title="Home" data-page="home">
-                            <div class="hover-background"></div>
-                            <span>Home</span><i class="fa fa-user fa-fw"></i>
-                        </li>
-                        <li class="nav-btn" title="Contact" id="contact-link" data-page="contact">
-                            <div class="hover-background"></div>
-                            <span>Contact</span><i class="fa fa-paper-plane fa-fw"></i>
-                        </li>
-                    </ul><!--/.nav-menu __PAGE MENU ENDS-->
+    <div id="content" class="row">
 
-                    <!--SOCIAL NAV MENU-->
-                    <div class="social-menu-container">
-                        <ul class="social-menu no-padding">                     
-                            <li><a href="https://www.facebook.com/Faiqbaihaqi"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="https://www.instagram.com/Faiqbaihaqi"><i class="fa fa-instagram"></i></a></li>
-                        </ul>
-                    </div><!--/.social-menu-container-->
-                </div><!--#menu-container-->
+        <!-- =====================================
+             LEFT SIDE
+        ====================================== -->
+
+        <div class="col-sm-4">
+
+            <div id="namecard">
+
+                <h1 class="maintitle">
+                    Fa'iq <span class="invert">Baihaqi</span>
+                </h1>
+
+                <h3 class="sub-maintitle">
+                    Accountant, Auditor
+                </h3>
+
+                <img
+                    id="profile-img"
+                    src="images/profile-thum.png"
+                    alt="Fa'iq Baihaqi"
+                >
+
             </div>
-            <div class="col-sm-8 page-segment">
-                <ul class="page-container no-padding">
-                    <!--HOME/PROFILE PAGE-->
-                    <li id="home" class="selected">
-                        <div class="title-container hidden">
-                            <div class="shadow-img"></div> 
-                            <h2 class="rotate-out">Welcome To <span class="invert">My Website</span></h2><!--HOME TITLE-->                          
-                        </div>
-                        <div class="description hidden">
-                            <div class="watermark-home"></div> 
 
-                            <div class="fade-text transparent">
-<!-- DESCRIPTION ON HOME -->
-<div class="strong-text">
-    Hello, I'm <span>Fa'iq Baihaqi</span>
+            <!-- MENU -->
+
+            <div id="menu-container">
+
+                <ul class="nav-menu">
+
+                    <li class="selected">
+                        <span>Home</span>
+                        <i class="fa fa-user fa-fw"></i>
+                    </li>
+
+                    <li onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                        <span>Contact</span>
+                        <i class="fa fa-paper-plane fa-fw"></i>
+                    </li>
+
+                </ul>
+
+                <!-- SOCIAL -->
+
+                <div class="social-menu-container">
+
+                    <ul class="social-menu">
+
+                        <li>
+                            <a
+                                href="https://www.facebook.com/Faiqbaihaqi"
+                                target="_blank"
+                            >
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a
+                                href="https://www.instagram.com/Faiqbaihaqi"
+                                target="_blank"
+                            >
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================
+             RIGHT SIDE
+        ====================================== -->
+
+        <div class="col-sm-8 page-segment">
+
+            <div class="page-container">
+
+                <!-- =================================
+                     HOME
+                ================================== -->
+
+                <section id="home">
+
+                    <div class="title-container">
+
+                        <h2>
+                            Welcome To
+                            <span class="invert">My Website</span>
+                        </h2>
+
+                    </div>
+
+
+                    <div class="description">
+
+                        <div class="fade-text">
+
+                            <div class="strong-text">
+
+                                Hello, I'm
+                                <span>Fa'iq Baihaqi</span>
+
+                            </div>
+
+
+                            <p class="large-paragraph">
+
+                                Hi hasna.. terima kasih sudah klik web aku yahhh
+                                wkwkwkw.
+
+                                <br><br>
+
+                                Btw ini aku ada ucapan untuk kamu:
+
+                                <br>
+
+                                <a
+                                    href="https://faiqbaihaqi.github.io/HBD-Hasna/"
+                                    target="_blank"
+                                    class="cute-link letter-link"
+                                >
+                                    <span class="letter-icon">💌</span>
+                                    <span>Klik Disini</span>
+                                    <span class="heart">♥</span>
+                                </a>
+
+                                <br>
+
+                                Ya.. sama ini ada editan video dari aku
+                                wkwkwk, boleh kalau mau lihat yaaa..
+
+                                <br>
+
+                                <a
+                                    href="https://youtu.be/9Xr91WM92XU?si=eZjETDbUxmTiUQ6G"
+                                    target="_blank"
+                                    class="cute-link video-link"
+                                >
+                                    <span class="film-icon">🎬</span>
+                                    <span>Klik Disini</span>
+                                    <span class="play-icon">▶</span>
+                                </a>
+
+                                <br>
+
+                                Kalau mau lihat yaaa..
+                                Terima kasihhhh!!!!
+
+                            </p>
+
+
+                            <!-- PERSONAL INFO -->
+
+                            <h3 class="personal-info-title">
+                                Personal Info
+                            </h3>
+
+                            <ul class="personal-info">
+
+                                <li>
+                                    <label>Name</label>
+                                    <span>Fa'iq Baihaqi</span>
+                                </li>
+
+                                <li>
+                                    <label>Address</label>
+                                    <span>Tangerang</span>
+                                </li>
+
+                                <li>
+                                    <label>Email</label>
+                                    <span>
+                                        faiqbaihaqi@gmail.com
+                                    </span>
+                                </li>
+
+                                <li>
+                                    <label>Linkedin</label>
+                                    <span>
+                                        www.linkedin.com/in/faiqbaihaqi
+                                    </span>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- =================================
+                     CONTACT
+                ================================== -->
+
+                <section id="contact">
+
+                    <div class="title-container">
+
+                        <h2>
+                            Contact
+                        </h2>
+
+                    </div>
+
+
+                    <div class="description">
+
+                        <div class="row">
+
+                            <div class="col-sm-5">
+
+                                <h3 class="title">
+                                    Contact Info
+                                </h3>
+
+                                <h6 class="sm-title">
+
+                                    <span class="address-icon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </span>
+
+                                    Jl. Prof Dr Hamka
+
+                                </h6>
+
+
+                                <h6 class="sm-title">
+
+                                    <span class="address-icon">
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+
+                                    faiqbaihaqi@gmail.com
+
+                                </h6>
+
+                            </div>
+
+
+                            <div class="col-sm-7">
+
+                                <div class="mail-container">
+
+                                    <h3 class="title invert">
+                                        Don't Forget Send Mail To Me
+                                    </h3>
+
+                                    <form
+                                        action="#"
+                                        method="post"
+                                        id="contact-form"
+                                        onsubmit="return false;"
+                                    >
+
+                                        <div class="form-group">
+
+                                            <input
+                                                name="name"
+                                                class="form-control"
+                                                placeholder="Name"
+                                                type="text"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="form-group">
+
+                                            <input
+                                                name="email"
+                                                class="form-control"
+                                                placeholder="Email"
+                                                type="email"
+                                            >
+
+                                        </div>
+
+
+                                        <div class="form-group">
+
+                                            <textarea
+                                                name="message"
+                                                class="form-control"
+                                                placeholder="Message"
+                                                rows="4"
+                                            ></textarea>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+
+                                            <button
+                                                type="submit"
+                                                class="btn btn-success"
+                                            >
+                                                SEND
+                                            </button>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<p class="large-paragraph">
-    Hi hasna.. terima kasih sudah klik web aku yahhh wkwkwkw 
-    btw ini aku ada ucapan untuk kamu
-	
-	<a href="https://faiqbaihaqi.github.io/HBD-Hasna/" target="_blank" class="cute-link letter-link"> <span class="letter-icon">💌</span> <span>Klik Disini</span> <span class="heart">♥</span> </a>
 
-    ya.. sama ini ada editan video dari aku wkwkwk, boleh
+<!-- =========================================
+     FORCE SHOW EVERYTHING
+========================================= -->
 
-<a href="https://youtu.be/9Xr91WM92XU?si=eZjETDbUxmTiUQ6G" target="_blank" class="cute-link video-link"> <span class="film-icon">🎬</span> <span>Klik Disini</span> <span class="play-icon">▶</span> </a>
-    kalau mau lihat yaaa.. terima kasihhhh!!!!
-</p>
-<!-- DESCRIPTION ON HOME ENDS -->
-								
-                            <!--ALL PERSONAL DETAILS-->
-                            <h3 class="personal-info-title title">Personal Info</h3>
-                            <ul class="personal-info">
-                                <li class="rotate-out rotated"><label>Name</label><span>Fa'iq Baihaqi</span></li>                     
-                                <li class="rotate-out rotated"><label>Address</label><span>Tangerang</span></li>
-                                <li class="rotate-out rotated"><label>Email</label><span>faiqbaihaqi@gmail.com</span></li>  
-								<li class="rotate-out rotated"><label>Linkedin</label><span>www.linkedin.com/in/faiqbaihaqi</span></li>
-                            </ul><!--/ul.personal-info-->
-                        </div>
-                    </li><!--/#home-->
-					<li id="contact" class="hidden">
-                        <div class="title-container" >
-                            <div class="shadow-img"></div>               
-                           <h2 class="rotate-out rotated">Contact</h2><!--CONTACT PAGE TITLE-->
-                        </div>
-                        <div class="description">                           
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="map-container">
-                                        <div id="map" style="width:100%;height:325px;"></div><!--GOOGLE MAP-->
-                                    </div>
-                                </div>
+<script>
 
-                                <div class="col-sm-5">
-                                    <!--CONTACT DESCRIPTION-->
-                                    <h3 class="title">Contact Info</h3>
-                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-map-marker"></i></span>Jl. Prof Dr hamka</h6>
-                                    <h6 class="sm-title"><span class="address-icon"><i class="fa fa-envelope"></i></span>faiqbaihaqi@gmail.com</h6>
-                                    <!--/CONTACT DESCRIPTION ENDS-->
-                                </div>
-                                <div class="col-sm-7">
+document.addEventListener("DOMContentLoaded", function () {
 
-                                    <div class="mail-container">
-                                        <div class="cnmail result">
-                                            <div class="msg success-msg"><i class="icon svg-check"><!--?xml version="1.0" encoding="utf-8"?-->  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"> <path d="M16 2.688c-7.375 0-13.313 5.938-13.313 13.313s5.938 13.313 13.313 13.313c7.375 0 13.313-5.938 13.313-13.313s-5.938-13.313-13.313-13.313zM16 28.25c-6.75 0-12.25-5.5-12.25-12.25s5.5-12.25 12.25-12.25c6.75 0 12.25 5.5 12.25 12.25s-5.5 12.25-12.25 12.25zM22.688 11.25l-8.563 8.313-3-3c-0.313-0.313-0.813-0.313-1.125 0s-0.313 0.813 0 1.125l3.563 3.563c0.125 0.125 0.313 0.188 0.563 0.188 0.188 0 0.375-0.063 0.5-0.188l9.125-8.875c0.375-0.313 0.375-0.813 0.063-1.125s-0.813-0.313-1.125 0z"></path> </svg> </i><span> You email has been stored!</span></div>
-                                            <div class="msg error-msg"><i class="icon svg-close-circle"><!--?xml version="1.0" encoding="utf-8"?-->  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"> <path d="M6.563 6.563c-5.188 5.188-5.188 13.688 0 18.875s13.688 5.188 18.875 0c5.188-5.188 5.188-13.625 0-18.875-5.188-5.188-13.625-5.188-18.875 0zM24.688 24.688c-4.813 4.75-12.563 4.75-17.375 0-4.75-4.813-4.75-12.563 0-17.375 4.813-4.75 12.563-4.75 17.375 0 4.75 4.813 4.75 12.563 0 17.375zM10.75 10l-0.813 0.75 5.313 5.25-5.25 5.25 0.75 0.75 5.25-5.25 5.25 5.25 0.75-0.75-5.25-5.25 5.313-5.25-0.813-0.75-5.25 5.25z"></path> </svg> </i><span> Sorry! Something went wrong!</span></div>
-                                        </div>
-                                        <h3 class="title invert">Don't Forget Send Mail To Me</h3>
-                                        <!--CONTACT FORM-->
-                                        <form action="http://wpcolorlab.com/html/yellow/sendmail.php" class="form-horizontal" id="contact-form">
-                                            <div class="form-group">
-                                                <input name="name" class="form-control required" placeholder="Name" data-placement="top" type="text">
-                                            </div>                                    
-                                            <div class="form-group">
-                                                <input name="email" class="form-control email" placeholder="Email" type="text">
-                                            </div>                   
-                                            <div class="form-group">
-                                                <textarea name="message" class="form-control" placeholder="Message" rows="3"></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-success">SEND</button>
-                                            </div>
+    /*
+     * Hapus class bawaan template yang biasanya
+     * membuat elemen menjadi hidden/transparent.
+     */
 
-                                        </form><!--/#contact-form-->
-                                    </div>                      
-                                    
-                                </div>                          
-                                
-                            </div>
-                        </div>
-                    </li><!--/#contact-->
-                </ul> 
+    document
+        .querySelectorAll(
+            ".hidden, .transparent, .rotated, .rotate-out"
+        )
+        .forEach(function (element) {
 
-                <div class="row mobile-nav-container">
-                    <!--SOCIAL NAV FOR MOBILE-->
-                    <ul class="mobile-social no-padding">
-                        <li>Connect With Me</li>
-                        <li><a href="https://www.facebook.com/Faiqbaihaqi"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.instagram.com/Faiqbaihaqi"><i class="fa fa-instagram"></i></a></li>
-                    </ul><!--/.mobile-social-->
-                </div>               
-            </div><!--/.page-segment -->
-            <!--  <h6 class="copyright-text">Copyright © 2022 John Doe</h6> --> <!--if anyone wants copyright Texts--> 
-        </div>
-    </div><!--/.container -->
-   
-    <!--PORTFOLIO IMAGE MODAL LIST-->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4><!--PORTFOLIO IMAGE TITLE-->
-                </div>
-                <div class="modal-body">
-                    <img src="images/folio/logs.jpg" class="img-responsive" alt="modal-image"><!--PORTFOLIO MODAL IMAGE-->
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis temporibus fuga sit explicabo blanditiis voluptate iste vero quia impedit? Iusto illo voluptas est praesentium veritatis magni, pariatur laboriosam voluptatem inventore.</p>
-                    </div>                      
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            element.classList.remove(
+                "hidden",
+                "transparent",
+                "rotated",
+                "rotate-out"
+            );
 
-    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel2">Hover Style</h4><!--PORTFOLIO IMAGE TITLE-->
-                </div>
-                <div class="modal-body">
-                    <img src="images/folio/book.jpg" class="img-responsive" alt="modal-image"><!--PORTFOLIO MODAL IMAGE-->
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel sapiente, odit, illo saepe voluptate eos enim eius autem cumque ab, soluta dolor tempore inventore eligendi maxime voluptas pariatur explicabo blanditiis?</p>
-                    </div>                      
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+            element.style.visibility = "visible";
+            element.style.opacity = "1";
+            element.style.transform = "none";
 
-    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel3">Hover Style</h4><!--PORTFOLIO IMAGE TITLE-->
-                </div>
-                <div class="modal-body">
-                    <img src="images/folio/guy.jpg" class="img-responsive" alt="modal-image"><!--PORTFOLIO MODAL IMAGE-->
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ratione quae, alias at. Reprehenderit, ut quis corporis laudantium, laborum sed omnis qui perspiciatis explicabo. Ipsum culpa aspernatur dolorem. Amet, quis.</p>
-                    </div>                      
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        });
 
-    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel4">Hover Style</h4><!--PORTFOLIO IMAGE TITLE-->
-                </div>
-                <div class="modal-body">
-                    <img src="images/folio/illustration.jpg" class="img-responsive" alt="modal-image"><!--PORTFOLIO MODAL IMAGE-->
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ab id unde veniam error et iste ut aspernatur accusantium porro molestiae voluptatibus rem, tempore inventore ad minus soluta praesentium magni?</p>
-                    </div>                      
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
 
-    <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel5">Hover Style</h4><!--PORTFOLIO IMAGE TITLE-->
-                </div>
-                <div class="modal-body">
-                    <img src="images/folio/beach.jpg" class="img-responsive" alt="modal-image"><!--PORTFOLIO MODAL IMAGE-->
-                </div>
-                <div class="modal-footer">
-                    <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam amet placeat porro, maxime corrupti laboriosam, quod nulla perferendis esse ipsa atque deleniti. Magni molestias, nemo illum eos, exercitationem neque incidunt.</p>
-                    </div>                      
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    /*
+     * Pastikan seluruh elemen tampil.
+     */
 
-    <div class="modal fade" id="subscribe_modal_1" tabindex="-1" role="dialog" aria-labelledby="subscribe_modal_1" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h2 class="modal-title">Thank You</h2><!--PORTFOLIO IMAGE TITLE-->
-                </div>
-                <div class="modal-body">
-                    <div class="text-center mail-sucsess"><h3> <span>your mail has been sent</span></h3></div>
-                </div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+    document
+        .querySelectorAll("*")
+        .forEach(function (element) {
 
-    <!--javascript files
-    =============================================================-->
-    <script type="text/javascript" src="js/jQueryTween-aio-min.js"></script> <!-- JQUERY Tween Plugin -->
-    <script type="text/javascript" src="js/jquery.tabslet.min.js"></script> <!-- JQUERY Tab plugin-->     
-    <script type="text/javascript" src="js/progressbar.min.js"></script> <!-- JQUERY Progressbar Plugin-->
-    <script type="text/javascript" src="js/jquery.simple-text-rotator.min.js"></script> <!-- JQUERY Text Rotator-->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script> <!-- Bootstrap file-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPNkCVoBW_Jzl6x-hgGU6e7QW1QMwKles"></script>
-    <script type="text/javascript" src='js/isotope.pkgd.min.js'></script> <!--SCRIPTS FOR PORTFOLIO IMAGE'S ANIMATION-->
-    <script type="text/javascript" src="js/custom.js"></script>
+            if (
+                element.id === "content" ||
+                element.id === "namecard" ||
+                element.id === "profile-img" ||
+                element.id === "home" ||
+                element.id === "contact"
+            ) {
+
+                element.style.visibility = "visible";
+                element.style.opacity = "1";
+
+            }
+
+        });
+
+});
+
+</script>
+
 </body>
-
-<!-- Mirrored from wpcolorlab.com/html/yellow/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 30 Jan 2017 16:06:27 GMT -->
 </html>
