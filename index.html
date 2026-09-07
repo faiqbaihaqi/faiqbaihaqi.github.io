@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,9 +16,148 @@
 
     <style>
 
-        /* =====================================
-           BASIC
-        ===================================== */
+        /* ==================================================
+           LOGIN SCREEN
+        ================================================== */
+
+        #login-screen {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background:
+                radial-gradient(circle at top, #444, #111 70%);
+
+            padding: 20px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+
+            padding: 40px 30px;
+
+            text-align: center;
+
+            background: rgba(255,255,255,0.97);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.5);
+
+            animation: loginAppear 0.8s ease;
+        }
+
+        @keyframes loginAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+        }
+
+        .login-icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .login-box h2 {
+            margin: 10px 0;
+            font-family: "Oswald", sans-serif;
+        }
+
+        .login-box p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        #login-password {
+            width: 100%;
+            padding: 14px 16px;
+
+            border: 1px solid #ddd;
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 16px;
+
+            margin-bottom: 15px;
+
+            transition: 0.3s;
+        }
+
+        #login-password:focus {
+            border-color: #888;
+            box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+        }
+
+        #login-button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+            border-radius: 10px;
+
+            background: #222;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        #login-button:hover {
+            background: #444;
+            transform: translateY(-2px);
+        }
+
+        #login-error {
+            display: none;
+
+            margin-top: 15px;
+
+            color: #d63031;
+            font-size: 14px;
+            font-weight: bold;
+
+            animation: shake 0.3s ease;
+        }
+
+        @keyframes shake {
+
+            0%   { transform: translateX(0); }
+            25%  { transform: translateX(-7px); }
+            50%  { transform: translateX(7px); }
+            75%  { transform: translateX(-7px); }
+            100% { transform: translateX(0); }
+
+        }
+
+        /* ==================================================
+           WEBSITE
+        ================================================== */
+
+        #website-content {
+            display: none;
+        }
 
         * {
             box-sizing: border-box;
@@ -28,6 +168,7 @@
             margin: 0;
             padding: 0;
             min-height: 100%;
+
             font-family: "Open Sans", Arial, sans-serif;
         }
 
@@ -37,18 +178,17 @@
 
         .container {
             min-height: 100vh;
+
             padding-top: 50px;
             padding-bottom: 50px;
         }
 
-        /* =====================================
-           MAIN CONTENT
-        ===================================== */
-
         #content {
             display: flex !important;
+
             visibility: visible !important;
             opacity: 1 !important;
+
             min-height: 500px;
         }
 
@@ -58,13 +198,14 @@
             opacity: 1 !important;
         }
 
-        /* =====================================
+        /* ==================================================
            NAME CARD
-        ===================================== */
+        ================================================== */
 
         #namecard {
             position: relative;
             text-align: center;
+
             visibility: visible !important;
             opacity: 1 !important;
         }
@@ -74,17 +215,21 @@
         #profile-img {
             visibility: visible !important;
             opacity: 1 !important;
+
             transform: none !important;
         }
 
         .maintitle {
             font-family: "Oswald", sans-serif;
+
             font-size: 42px;
+
             margin-bottom: 10px;
         }
 
         .sub-maintitle {
             font-size: 18px;
+
             margin-bottom: 20px;
         }
 
@@ -94,39 +239,53 @@
 
         #profile-img {
             display: block !important;
+
             width: 230px;
             height: 230px;
+
             object-fit: cover;
+
             margin: 20px auto;
+
             border-radius: 50%;
         }
 
-        /* =====================================
+        /* ==================================================
            MENU
-        ===================================== */
+        ================================================== */
 
         #menu-container {
             margin-top: 30px;
+
             visibility: visible !important;
             opacity: 1 !important;
         }
 
         .nav-menu {
             list-style: none;
+
             padding: 0;
             margin: 0;
         }
 
         .nav-menu li {
             position: relative;
+
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             padding: 14px 18px;
+
             margin-bottom: 8px;
+
             cursor: pointer;
+
             border: 1px solid rgba(0,0,0,0.08);
+
             transition: 0.3s;
+
             visibility: visible !important;
             opacity: 1 !important;
         }
@@ -140,9 +299,9 @@
             font-weight: 600;
         }
 
-        /* =====================================
+        /* ==================================================
            SOCIAL
-        ===================================== */
+        ================================================== */
 
         .social-menu-container {
             margin-top: 25px;
@@ -150,22 +309,33 @@
 
         .social-menu {
             list-style: none;
+
             padding: 0;
+
             display: flex;
+
             justify-content: center;
+
             gap: 15px;
         }
 
         .social-menu li a {
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             width: 40px;
             height: 40px;
+
             border-radius: 50%;
+
             background: rgba(0,0,0,0.08);
+
             color: inherit;
+
             text-decoration: none;
+
             transition: 0.3s;
         }
 
@@ -173,9 +343,9 @@
             transform: translateY(-3px);
         }
 
-        /* =====================================
-           PAGE AREA
-        ===================================== */
+        /* ==================================================
+           PAGE
+        ================================================== */
 
         .page-segment {
             padding: 20px 40px;
@@ -183,16 +353,18 @@
 
         .page-container {
             list-style: none;
+
             padding: 0;
             margin: 0;
         }
 
-        /* =====================================
+        /* ==================================================
            HOME
-        ===================================== */
+        ================================================== */
 
         #home {
             display: block !important;
+
             visibility: visible !important;
             opacity: 1 !important;
         }
@@ -200,33 +372,43 @@
         .title-container {
             visibility: visible !important;
             opacity: 1 !important;
+
             transform: none !important;
+
             margin-bottom: 30px;
         }
 
         .title-container h2 {
             font-family: "Oswald", sans-serif;
+
             font-size: 34px;
+
             margin: 0;
         }
 
         .description {
             display: block !important;
+
             visibility: visible !important;
             opacity: 1 !important;
+
             transform: none !important;
         }
 
         .fade-text {
             display: block !important;
+
             visibility: visible !important;
             opacity: 1 !important;
+
             transform: none !important;
         }
 
         .strong-text {
             font-size: 25px;
+
             font-weight: 600;
+
             margin-bottom: 20px;
         }
 
@@ -236,34 +418,46 @@
 
         .large-paragraph {
             font-size: 17px;
+
             line-height: 2;
         }
 
-        /* =====================================
-           CUTE LINKS
-        ===================================== */
+        /* ==================================================
+           CUTE LINK
+        ================================================== */
 
         .cute-link {
             display: inline-flex !important;
+
             align-items: center;
+
             gap: 7px;
+
             margin: 10px 5px;
+
             padding: 10px 18px;
+
             border-radius: 30px;
+
             text-decoration: none !important;
+
             font-weight: 700;
+
             transition: 0.3s;
+
             visibility: visible !important;
             opacity: 1 !important;
         }
 
         .letter-link {
             background: #ffe4ec;
+
             color: #d6336c;
         }
 
         .video-link {
             background: #e5e5e5;
+
             color: #333;
         }
 
@@ -278,6 +472,7 @@
 
         .heart {
             color: #ff4d6d;
+
             font-size: 18px;
         }
 
@@ -285,33 +480,43 @@
             font-size: 13px;
         }
 
-        /* =====================================
+        /* ==================================================
            PERSONAL INFO
-        ===================================== */
+        ================================================== */
 
         .personal-info-title {
             margin-top: 35px;
+
             font-family: "Oswald", sans-serif;
+
             font-size: 25px;
         }
 
         .personal-info {
             list-style: none;
+
             padding: 0;
+
             margin: 20px 0;
         }
 
         .personal-info li {
             display: flex;
+
             padding: 12px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+
+            border-bottom:
+                1px solid rgba(0,0,0,0.1);
+
             visibility: visible !important;
             opacity: 1 !important;
+
             transform: none !important;
         }
 
         .personal-info label {
             width: 120px;
+
             font-weight: 700;
         }
 
@@ -319,16 +524,20 @@
             flex: 1;
         }
 
-        /* =====================================
+        /* ==================================================
            CONTACT
-        ===================================== */
+        ================================================== */
 
         #contact {
             margin-top: 70px;
+
             padding-top: 50px;
-            border-top: 2px solid rgba(0,0,0,0.1);
+
+            border-top:
+                2px solid rgba(0,0,0,0.1);
 
             display: block !important;
+
             visibility: visible !important;
             opacity: 1 !important;
         }
@@ -337,29 +546,31 @@
             display: block !important;
         }
 
-        .contact-info {
-            margin-top: 20px;
-        }
-
         .sm-title {
             margin: 18px 0;
+
             font-size: 15px;
         }
 
         .address-icon {
             display: inline-flex;
+
             justify-content: center;
             align-items: center;
+
             width: 30px;
             height: 30px;
+
             margin-right: 8px;
+
             border-radius: 50%;
+
             background: rgba(0,0,0,0.08);
         }
 
-        /* =====================================
+        /* ==================================================
            CONTACT FORM
-        ===================================== */
+        ================================================== */
 
         .mail-container {
             margin-top: 25px;
@@ -367,7 +578,9 @@
 
         .mail-container .title {
             font-family: "Oswald", sans-serif;
+
             font-size: 22px;
+
             margin-bottom: 20px;
         }
 
@@ -378,9 +591,13 @@
         #contact-form input,
         #contact-form textarea {
             width: 100%;
+
             padding: 12px;
+
             border: 1px solid #ddd;
+
             border-radius: 5px;
+
             outline: none;
         }
 
@@ -390,14 +607,17 @@
 
         #contact-form button {
             padding: 10px 25px;
+
             border: none;
+
             border-radius: 5px;
+
             cursor: pointer;
         }
 
-        /* =====================================
+        /* ==================================================
            MOBILE
-        ===================================== */
+        ================================================== */
 
         @media (max-width: 767px) {
 
@@ -412,6 +632,7 @@
             #content > .col-sm-4,
             #content > .col-sm-8 {
                 width: 100%;
+
                 display: block !important;
             }
 
@@ -442,334 +663,489 @@
 
             .personal-info label {
                 display: block;
+
                 width: 100%;
+
                 margin-bottom: 5px;
             }
 
             #contact {
                 margin-top: 50px;
             }
+
         }
 
     </style>
+
 </head>
 
 <body>
 
-<div class="container">
 
-    <div id="content" class="row">
+<!-- =====================================================
+     LOGIN SCREEN
+====================================================== -->
 
-        <!-- =====================================
-             LEFT SIDE
-        ====================================== -->
+<div id="login-screen">
 
-        <div class="col-sm-4">
+    <div class="login-box">
 
-            <div id="namecard">
+        <div class="login-icon">
+            🔐
+        </div>
 
-                <h1 class="maintitle">
-                    Fa'iq <span class="invert">Baihaqi</span>
-                </h1>
+        <h2>
+            Private Website
+        </h2>
 
-                <h3 class="sub-maintitle">
-                    Accountant, Auditor
-                </h3>
+        <p>
+            Masukkan password untuk masuk
+        </p>
 
-                <img
-                    id="profile-img"
-                    src="images/profile-thum.png"
-                    alt="Fa'iq Baihaqi"
-                >
+        <input
+            type="password"
+            id="login-password"
+            placeholder="Masukkan password..."
+            autocomplete="off"
+        >
 
-            </div>
+        <button
+            id="login-button"
+            onclick="login()"
+        >
+            🔓 Masuk
+        </button>
 
-            <!-- MENU -->
+        <div id="login-error">
+            ❌ Password salah! Silakan coba lagi.
+        </div>
 
-            <div id="menu-container">
+    </div>
 
-                <ul class="nav-menu">
+</div>
 
-                    <li class="selected">
-                        <span>Home</span>
-                        <i class="fa fa-user fa-fw"></i>
-                    </li>
 
-                    <li onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-                        <span>Contact</span>
-                        <i class="fa fa-paper-plane fa-fw"></i>
-                    </li>
+<!-- =====================================================
+     WEBSITE CONTENT
+     AWALNYA TERSEMBUNYI
+====================================================== -->
 
-                </ul>
+<div id="website-content">
 
-                <!-- SOCIAL -->
+    <div class="container">
 
-                <div class="social-menu-container">
+        <div id="content" class="row">
 
-                    <ul class="social-menu">
 
-                        <li>
-                            <a
-                                href="https://www.facebook.com/Faiqbaihaqi"
-                                target="_blank"
-                            >
-                                <i class="fa fa-facebook"></i>
-                            </a>
+            <!-- =================================================
+                 LEFT SIDE
+            ================================================== -->
+
+            <div class="col-sm-4">
+
+                <div id="namecard">
+
+                    <h1 class="maintitle">
+                        Fa'iq
+                        <span class="invert">
+                            Baihaqi
+                        </span>
+                    </h1>
+
+                    <h3 class="sub-maintitle">
+                        Accountant, Auditor
+                    </h3>
+
+                    <img
+                        id="profile-img"
+                        src="images/profile-thum.png"
+                        alt="Fa'iq Baihaqi"
+                    >
+
+                </div>
+
+
+                <!-- MENU -->
+
+                <div id="menu-container">
+
+                    <ul class="nav-menu">
+
+                        <li
+                            class="selected"
+                            onclick="scrollHome()"
+                        >
+                            <span>
+                                Home
+                            </span>
+
+                            <i class="fa fa-user fa-fw"></i>
                         </li>
 
-                        <li>
-                            <a
-                                href="https://www.instagram.com/Faiqbaihaqi"
-                                target="_blank"
-                            >
-                                <i class="fa fa-instagram"></i>
-                            </a>
+
+                        <li
+                            onclick="scrollContact()"
+                        >
+                            <span>
+                                Contact
+                            </span>
+
+                            <i class="fa fa-paper-plane fa-fw"></i>
                         </li>
 
                     </ul>
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="social-menu-container">
+
+                        <ul class="social-menu">
+
+                            <li>
+
+                                <a
+                                    href="https://www.facebook.com/Faiqbaihaqi"
+                                    target="_blank"
+                                >
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+
+                            </li>
+
+
+                            <li>
+
+                                <a
+                                    href="https://www.instagram.com/Faiqbaihaqi"
+                                    target="_blank"
+                                >
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
 
                 </div>
 
             </div>
 
-        </div>
+
+            <!-- =================================================
+                 RIGHT SIDE
+            ================================================== -->
+
+            <div class="col-sm-8 page-segment">
+
+                <div class="page-container">
 
 
-        <!-- =====================================
-             RIGHT SIDE
-        ====================================== -->
+                    <!-- =================================================
+                         HOME
+                    ================================================== -->
 
-        <div class="col-sm-8 page-segment">
+                    <section id="home">
 
-            <div class="page-container">
+                        <div class="title-container">
 
-                <!-- =================================
-                     HOME
-                ================================== -->
+                            <h2>
 
-                <section id="home">
+                                Welcome To
 
-                    <div class="title-container">
+                                <span class="invert">
+                                    My Website
+                                </span>
 
-                        <h2>
-                            Welcome To
-                            <span class="invert">My Website</span>
-                        </h2>
-
-                    </div>
-
-
-                    <div class="description">
-
-                        <div class="fade-text">
-
-                            <div class="strong-text">
-
-                                Hello, I'm
-                                <span>Fa'iq Baihaqi</span>
-
-                            </div>
-
-
-                            <p class="large-paragraph">
-
-                                Hi hasna.. terima kasih sudah klik web aku yahhh
-                                wkwkwkw.
-
-                                <br><br>
-
-                                Btw ini aku ada ucapan untuk kamu:
-
-                                <br>
-
-                                <a
-                                    href="https://faiqbaihaqi.github.io/HBD-Hasna/"
-                                    target="_blank"
-                                    class="cute-link letter-link"
-                                >
-                                    <span class="letter-icon">💌</span>
-                                    <span>Klik Disini</span>
-                                    <span class="heart">♥</span>
-                                </a>
-
-                                <br>
-
-                                Ya.. sama ini ada editan video dari aku
-                                wkwkwk, boleh kalau mau lihat yaaa..
-
-                                <br>
-
-                                <a
-                                    href="https://youtu.be/9Xr91WM92XU?si=eZjETDbUxmTiUQ6G"
-                                    target="_blank"
-                                    class="cute-link video-link"
-                                >
-                                    <span class="film-icon">🎬</span>
-                                    <span>Klik Disini</span>
-                                    <span class="play-icon">▶</span>
-                                </a>
-
-                                <br>
-
-                                Kalau mau lihat yaaa..
-                                Terima kasihhhh!!!!
-
-                            </p>
-
-
-                            <!-- PERSONAL INFO -->
-
-                            <h3 class="personal-info-title">
-                                Personal Info
-                            </h3>
-
-                            <ul class="personal-info">
-
-                                <li>
-                                    <label>Name</label>
-                                    <span>Fa'iq Baihaqi</span>
-                                </li>
-
-                                <li>
-                                    <label>Address</label>
-                                    <span>Tangerang</span>
-                                </li>
-
-                                <li>
-                                    <label>Email</label>
-                                    <span>
-                                        faiqbaihaqi@gmail.com
-                                    </span>
-                                </li>
-
-                                <li>
-                                    <label>Linkedin</label>
-                                    <span>
-                                        www.linkedin.com/in/faiqbaihaqi
-                                    </span>
-                                </li>
-
-                            </ul>
+                            </h2>
 
                         </div>
 
-                    </div>
 
-                </section>
+                        <div class="description">
 
-
-                <!-- =================================
-                     CONTACT
-                ================================== -->
-
-                <section id="contact">
-
-                    <div class="title-container">
-
-                        <h2>
-                            Contact
-                        </h2>
-
-                    </div>
+                            <div class="fade-text">
 
 
-                    <div class="description">
+                                <div class="strong-text">
 
-                        <div class="row">
+                                    Hello, I'm
 
-                            <div class="col-sm-5">
+                                    <span>
+                                        Fa'iq Baihaqi
+                                    </span>
 
-                                <h3 class="title">
-                                    Contact Info
+                                </div>
+
+
+                                <p class="large-paragraph">
+
+                                    Hi hasna.. terima kasih sudah klik
+                                    web aku yahhh wkwkwkw.
+
+                                    <br><br>
+
+                                    Btw ini aku ada ucapan untuk kamu:
+
+                                    <br>
+
+
+                                    <!-- LETTER LINK -->
+
+                                    <a
+                                        href="https://faiqbaihaqi.github.io/HBD-Hasna/"
+                                        target="_blank"
+                                        class="cute-link letter-link"
+                                    >
+
+                                        <span class="letter-icon">
+                                            💌
+                                        </span>
+
+                                        <span>
+                                            Klik Disini
+                                        </span>
+
+                                        <span class="heart">
+                                            ♥
+                                        </span>
+
+                                    </a>
+
+
+                                    <br>
+
+                                    Ya.. sama ini ada editan video dari aku
+                                    wkwkwk, boleh kalau mau lihat yaaa..
+
+                                    <br>
+
+
+                                    <!-- VIDEO LINK -->
+
+                                    <a
+                                        href="https://youtu.be/9Xr91WM92XU?si=eZjETDbUxmTiUQ6G"
+                                        target="_blank"
+                                        class="cute-link video-link"
+                                    >
+
+                                        <span class="film-icon">
+                                            🎬
+                                        </span>
+
+                                        <span>
+                                            Klik Disini
+                                        </span>
+
+                                        <span class="play-icon">
+                                            ▶
+                                        </span>
+
+                                    </a>
+
+
+                                    <br>
+
+                                    Kalau mau lihat yaaa..
+                                    Terima kasihhhh!!!!
+
+                                </p>
+
+
+                                <!-- =================================================
+                                     PERSONAL INFO
+                                ================================================== -->
+
+                                <h3 class="personal-info-title">
+                                    Personal Info
                                 </h3>
 
-                                <h6 class="sm-title">
 
-                                    <span class="address-icon">
-                                        <i class="fa fa-map-marker"></i>
-                                    </span>
+                                <ul class="personal-info">
 
-                                    Jl. Prof Dr Hamka
+                                    <li>
 
-                                </h6>
+                                        <label>
+                                            Name
+                                        </label>
+
+                                        <span>
+                                            Fa'iq Baihaqi
+                                        </span>
+
+                                    </li>
 
 
-                                <h6 class="sm-title">
+                                    <li>
 
-                                    <span class="address-icon">
-                                        <i class="fa fa-envelope"></i>
-                                    </span>
+                                        <label>
+                                            Address
+                                        </label>
 
-                                    faiqbaihaqi@gmail.com
+                                        <span>
+                                            Tangerang
+                                        </span>
 
-                                </h6>
+                                    </li>
+
+
+                                    <li>
+
+                                        <label>
+                                            Email
+                                        </label>
+
+                                        <span>
+                                            faiqbaihaqi@gmail.com
+                                        </span>
+
+                                    </li>
+
+
+                                    <li>
+
+                                        <label>
+                                            Linkedin
+                                        </label>
+
+                                        <span>
+                                            www.linkedin.com/in/faiqbaihaqi
+                                        </span>
+
+                                    </li>
+
+                                </ul>
 
                             </div>
 
+                        </div>
 
-                            <div class="col-sm-7">
+                    </section>
 
-                                <div class="mail-container">
 
-                                    <h3 class="title invert">
-                                        Don't Forget Send Mail To Me
+                    <!-- =================================================
+                         CONTACT
+                    ================================================== -->
+
+                    <section id="contact">
+
+                        <div class="title-container">
+
+                            <h2>
+                                Contact
+                            </h2>
+
+                        </div>
+
+
+                        <div class="description">
+
+                            <div class="row">
+
+
+                                <div class="col-sm-5">
+
+                                    <h3 class="title">
+                                        Contact Info
                                     </h3>
 
-                                    <form
-                                        action="#"
-                                        method="post"
-                                        id="contact-form"
-                                        onsubmit="return false;"
-                                    >
 
-                                        <div class="form-group">
+                                    <h6 class="sm-title">
 
-                                            <input
-                                                name="name"
-                                                class="form-control"
-                                                placeholder="Name"
-                                                type="text"
-                                            >
+                                        <span class="address-icon">
 
-                                        </div>
+                                            <i class="fa fa-map-marker"></i>
+
+                                        </span>
+
+                                        Jl. Prof Dr Hamka
+
+                                    </h6>
 
 
-                                        <div class="form-group">
+                                    <h6 class="sm-title">
 
-                                            <input
-                                                name="email"
-                                                class="form-control"
-                                                placeholder="Email"
-                                                type="email"
-                                            >
+                                        <span class="address-icon">
 
-                                        </div>
+                                            <i class="fa fa-envelope"></i>
 
+                                        </span>
 
-                                        <div class="form-group">
+                                        faiqbaihaqi@gmail.com
 
-                                            <textarea
-                                                name="message"
-                                                class="form-control"
-                                                placeholder="Message"
-                                                rows="4"
-                                            ></textarea>
+                                    </h6>
 
-                                        </div>
+                                </div>
 
 
-                                        <div class="form-group">
+                                <div class="col-sm-7">
 
-                                            <button
-                                                type="submit"
-                                                class="btn btn-success"
-                                            >
-                                                SEND
-                                            </button>
+                                    <div class="mail-container">
 
-                                        </div>
+                                        <h3 class="title invert">
 
-                                    </form>
+                                            Don't Forget Send Mail To Me
+
+                                        </h3>
+
+
+                                        <form
+                                            id="contact-form"
+                                            onsubmit="return false;"
+                                        >
+
+                                            <div class="form-group">
+
+                                                <input
+                                                    name="name"
+                                                    class="form-control"
+                                                    placeholder="Name"
+                                                    type="text"
+                                                >
+
+                                            </div>
+
+
+                                            <div class="form-group">
+
+                                                <input
+                                                    name="email"
+                                                    class="form-control"
+                                                    placeholder="Email"
+                                                    type="email"
+                                                >
+
+                                            </div>
+
+
+                                            <div class="form-group">
+
+                                                <textarea
+                                                    name="message"
+                                                    class="form-control"
+                                                    placeholder="Message"
+                                                    rows="4"
+                                                ></textarea>
+
+                                            </div>
+
+
+                                            <div class="form-group">
+
+                                                <button
+                                                    type="submit"
+                                                    class="btn btn-success"
+                                                >
+                                                    SEND
+                                                </button>
+
+                                            </div>
+
+                                        </form>
+
+                                    </div>
 
                                 </div>
 
@@ -777,9 +1153,10 @@
 
                         </div>
 
-                    </div>
+                    </section>
 
-                </section>
+
+                </div>
 
             </div>
 
@@ -790,65 +1167,159 @@
 </div>
 
 
-<!-- =========================================
-     FORCE SHOW EVERYTHING
-========================================= -->
+<!-- =====================================================
+     LOGIN JAVASCRIPT
+====================================================== -->
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
-
     /*
-     * Hapus class bawaan template yang biasanya
-     * membuat elemen menjadi hidden/transparent.
+     * ==============================================
+     * DAFTAR PASSWORD YANG VALID
+     * ==============================================
+     *
+     * Tambahkan password baru di dalam array ini.
      */
 
-    document
-        .querySelectorAll(
-            ".hidden, .transparent, .rotated, .rotate-out"
-        )
-        .forEach(function (element) {
+    const passwordBenar = [
 
-            element.classList.remove(
-                "hidden",
-                "transparent",
-                "rotated",
-                "rotate-out"
-            );
+        "Hasna",
+        "HASNA",
+        "hasna",
+        "Fai",
+        "fairuz"
 
-            element.style.visibility = "visible";
-            element.style.opacity = "1";
-            element.style.transform = "none";
-
-        });
+    ];
 
 
     /*
-     * Pastikan seluruh elemen tampil.
+     * ==============================================
+     * FUNGSI LOGIN
+     * ==============================================
+     */
+
+    function login() {
+
+        const password =
+            document.getElementById("login-password").value.trim();
+
+        const error =
+            document.getElementById("login-error");
+
+        const loginScreen =
+            document.getElementById("login-screen");
+
+        const website =
+            document.getElementById("website-content");
+
+
+        /*
+         * Cek apakah password ada di daftar
+         */
+
+        if (passwordBenar.includes(password)) {
+
+            /*
+             * Password benar
+             */
+
+            error.style.display = "none";
+
+            loginScreen.style.display = "none";
+
+            website.style.display = "block";
+
+            /*
+             * Scroll ke bagian atas
+             */
+
+            window.scrollTo(0, 0);
+
+        }
+
+        else {
+
+            /*
+             * Password salah
+             */
+
+            error.style.display = "block";
+
+            /*
+             * Kosongkan input
+             */
+
+            document.getElementById(
+                "login-password"
+            ).value = "";
+
+            /*
+             * Fokus kembali ke input
+             */
+
+            document.getElementById(
+                "login-password"
+            ).focus();
+
+        }
+
+    }
+
+
+    /*
+     * ==============================================
+     * ENTER = LOGIN
+     * ==============================================
      */
 
     document
-        .querySelectorAll("*")
-        .forEach(function (element) {
+        .getElementById("login-password")
+        .addEventListener("keydown", function(event) {
 
-            if (
-                element.id === "content" ||
-                element.id === "namecard" ||
-                element.id === "profile-img" ||
-                element.id === "home" ||
-                element.id === "contact"
-            ) {
+            if (event.key === "Enter") {
 
-                element.style.visibility = "visible";
-                element.style.opacity = "1";
+                login();
 
             }
 
         });
 
-});
+
+    /*
+     * ==============================================
+     * MENU HOME
+     * ==============================================
+     */
+
+    function scrollHome() {
+
+        document
+            .getElementById("home")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /*
+     * ==============================================
+     * MENU CONTACT
+     * ==============================================
+     */
+
+    function scrollContact() {
+
+        document
+            .getElementById("contact")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
 
 </script>
+
 
 </body>
 </html>
